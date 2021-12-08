@@ -9,7 +9,11 @@
     "eject": "react-scripts eject"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
     "@material-ui/core": "latest",
+    "@mui/icons-material": "^5.2.1",
     "clsx": "latest",
     "react": "latest",
     "react-dom": "latest",
@@ -27,5 +31,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "json-server": "^0.17.0"
   }
 }
