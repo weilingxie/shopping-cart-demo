@@ -1,5 +1,3 @@
-import React from 'react'
-
 const CartItem = ({ item, increaseQuantity, decreaseQuantity, deleteItem }) => {
   const { id, displayName, imageName, quantity } = item
 

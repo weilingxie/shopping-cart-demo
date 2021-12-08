@@ -1,4 +1,3 @@
-import React from 'react'
 import materials from '../static/materials.json'
 import Item from './Item'
 import './MaterialList.css'

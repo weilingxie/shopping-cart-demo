@@ -1,5 +1,3 @@
-import React from 'react'
-
 const Item = ({ item, addItemToCart }) => {
   const { displayName, imageName } = item
   const handleClick = () => {
