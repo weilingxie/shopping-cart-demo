@@ -1,4 +1,12 @@
-const Item = ({ item, addItemToCart }) => {
+import React from 'react'
+import { Material } from '../types/MaterialTypes'
+
+interface ItemProps {
+  item: Material
+  addItemToCart: (item: Material) => void
+}
+
+const Item: React.FC<ItemProps> = ({ item, addItemToCart }) => {
   const { displayName, imageName } = item
   const handleClick = () => {
     addItemToCart(item)

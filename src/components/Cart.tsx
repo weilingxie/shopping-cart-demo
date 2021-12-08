@@ -1,7 +1,16 @@
+import React from 'react'
 import CartItem from './CartItem'
+import { CartItems, CartItemType } from '../types/CartTypes'
 import './Cart.css'
 
-const Cart = ({
+interface CartProps {
+  cartItems: CartItems
+  increaseQuantity: (item: CartItemType) => void
+  decreaseQuantity: (item: CartItemType) => void
+  deleteItem: (id: number) => void
+}
+
+const Cart: React.FC<CartProps> = ({
   cartItems,
   increaseQuantity,
   decreaseQuantity,

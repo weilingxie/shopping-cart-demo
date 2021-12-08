@@ -1,4 +1,19 @@
-const CartItem = ({ item, increaseQuantity, decreaseQuantity, deleteItem }) => {
+import React from 'react'
+import { CartItemType } from '../types/CartTypes'
+
+interface CartItemProps {
+  item: CartItemType
+  increaseQuantity: (item: CartItemType) => void
+  decreaseQuantity: (item: CartItemType) => void
+  deleteItem: (id: number) => void
+}
+
+const CartItem: React.FC<CartItemProps> = ({
+  item,
+  increaseQuantity,
+  decreaseQuantity,
+  deleteItem,
+}) => {
   const { id, displayName, imageName, quantity } = item
 
   return (

@@ -1,9 +1,15 @@
+import React from 'react'
 import materials from '../static/materials.json'
 import Item from './Item'
+import { Material, Materials } from '../types/MaterialTypes'
 import './MaterialList.css'
 
-const MaterialList = ({ addItemToCart }) => {
-  const materialsArray = [...materials.materials]
+interface MaterialListProps {
+  addItemToCart: (item: Material) => void
+}
+
+const MaterialList: React.FC<MaterialListProps> = ({ addItemToCart }) => {
+  const materialsArray: Materials = [...materials.materials]
 
   return (
     <div className="display-container">
