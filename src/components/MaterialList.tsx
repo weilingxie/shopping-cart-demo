@@ -1,4 +1,5 @@
 import React from 'react'
+import Grid from '@mui/material/Grid'
 import materials from '../static/materials.json'
 import Item from './Item'
 import { Material, Materials } from '../types/MaterialTypes'
@@ -12,11 +13,11 @@ const MaterialList: React.FC<MaterialListProps> = ({ addItemToCart }) => {
   const materialsArray: Materials = [...materials.materials]
 
   return (
-    <div className="display-container">
+    <Grid container item lg={9} spacing={3}>
       {materialsArray.map((material) => (
         <Item key={material.id} item={material} addItemToCart={addItemToCart} />
       ))}
-    </div>
+    </Grid>
   )
 }
 

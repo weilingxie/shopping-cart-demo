@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { Container } from '@mui/material'
+import Grid from '@mui/material/Grid'
 import MaterialList from './MaterialList'
 import { CartItems, CartItemType } from '../types/CartTypes'
 import { Material } from '../types/MaterialTypes'
@@ -50,15 +52,17 @@ const ShoppingListContainer: React.FC = () => {
   }
 
   return (
-    <div className="page-container">
-      <MaterialList addItemToCart={addItemToCart} />
-      <Cart
-        cartItems={cartItems}
-        increaseQuantity={increaseQuantity}
-        decreaseQuantity={decreaseQuantity}
-        deleteItem={deleteItem}
-      />
-    </div>
+    <Container sx={{ paddingTop: '30px' }} className="page-container">
+      <Grid container alignItems="flex-start" spacing="2">
+        <MaterialList addItemToCart={addItemToCart} />
+        <Cart
+          cartItems={cartItems}
+          increaseQuantity={increaseQuantity}
+          decreaseQuantity={decreaseQuantity}
+          deleteItem={deleteItem}
+        />
+      </Grid>
+    </Container>
   )
 }
 

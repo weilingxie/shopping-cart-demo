@@ -1,4 +1,10 @@
 import React from 'react'
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
+import CancelIcon from '@mui/icons-material/Cancel'
+import { IconButton } from '@mui/material'
+import { Typography } from '@mui/material'
+
 import { CartItemType } from '../types/CartTypes'
 
 interface CartItemProps {
@@ -19,11 +25,17 @@ const CartItem: React.FC<CartItemProps> = ({
   return (
     <div className="cart-item">
       <img src={`../img/${imageName}`} alt={displayName} />
-      <h3>{displayName}</h3>
-      <span onClick={() => increaseQuantity(item)}>+</span>
+      <Typography variant="subtitle2">{displayName}</Typography>
+      <IconButton color="inherit" onClick={() => increaseQuantity(item)}>
+        <AddCircleOutlineIcon />
+      </IconButton>
       <span>{quantity}</span>
-      <span onClick={() => decreaseQuantity(item)}>-</span>
-      <button onClick={() => deleteItem(id)}>X</button>
+      <IconButton color="inherit" onClick={() => decreaseQuantity(item)}>
+        <RemoveCircleOutlineIcon />
+      </IconButton>
+      <IconButton color="inherit" onClick={() => deleteItem(id)}>
+        <CancelIcon />
+      </IconButton>
     </div>
   )
 }
