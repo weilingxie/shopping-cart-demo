@@ -45,37 +45,6 @@ const Item: React.FC<ItemProps> = ({ item, addItemToCart }) => {
       </Card>
     </Grid>
   )
-
-  // return (
-  //   <Grid item lg={3}>
-  //     <Card sx={{ maxWidth: 345 }}>
-  //       <CardHeader>
-  //         <Typography>{displayName}</Typography>
-  //       </CardHeader>
-  //       <CardMedia
-  //         component="img"
-  //         height="194"
-  //         image={`../img/${imageName}`}
-  //         alt={displayName}
-  //       />
-  //       <CardActions disableSpacing>
-  //         <IconButton aria-label="share">
-  //           <AddShoppingCartIcon onClick={() => handleClick()} />
-  //         </IconButton>
-  //       </CardActions>
-  //     </Card>
-  //   </Grid>
-  // )
-
-  // return (
-  //   <div className="item">
-  //     <img src={`../img/${imageName}`} alt={displayName} />
-  //     <div className="item-right-side">
-  //       <h2>{displayName}</h2>
-  //       <button onClick={() => handleClick()}>Add to Cart</button>
-  //     </div>
-  //   </div>
-  // )
 }
 
 export default Item
