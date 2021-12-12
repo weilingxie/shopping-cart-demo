@@ -30,7 +30,11 @@ const CartItem: React.FC<CartItemProps> = ({
         <AddCircleOutlineIcon />
       </IconButton>
       <span>{quantity}</span>
-      <IconButton color="inherit" onClick={() => decreaseQuantity(item)}>
+      <IconButton
+        color="inherit"
+        onClick={() => decreaseQuantity(item)}
+        disabled={quantity <= 1}
+      >
         <RemoveCircleOutlineIcon />
       </IconButton>
       <IconButton color="inherit" onClick={() => deleteItem(id)}>
