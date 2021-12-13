@@ -21,9 +21,7 @@ const Cart: React.FC<CartProps> = ({
 }) => {
   return (
     <Grid container item lg={3} justifyContent="center" spacing={2}>
-      <Typography variant="h4" justifySelf="center">
-        {title}
-      </Typography>
+      <Typography variant="h5">{title}</Typography>
       {cartItems &&
         cartItems.map((item) => (
           <CartItem
