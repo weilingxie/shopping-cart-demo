@@ -1,4 +1,5 @@
 import React from 'react'
+import Grid from '@mui/material/Grid'
 import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline'
 import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline'
 import CancelIcon from '@mui/icons-material/Cancel'
@@ -23,25 +24,78 @@ const CartItem: React.FC<CartItemProps> = ({
   const { id, displayName, imageName, quantity } = item
 
   return (
-    <div className="cart-item">
-      <img src={`../img/${imageName}`} alt={displayName} />
-      <Typography variant="subtitle2">{displayName}</Typography>
-      <IconButton color="inherit" onClick={() => increaseQuantity(item)}>
-        <AddCircleOutlineIcon />
-      </IconButton>
-      <span>{quantity}</span>
-      <IconButton
-        color="inherit"
-        onClick={() => decreaseQuantity(item)}
-        disabled={quantity <= 1}
-      >
-        <RemoveCircleOutlineIcon />
-      </IconButton>
-      <IconButton color="inherit" onClick={() => deleteItem(id)}>
-        <CancelIcon />
-      </IconButton>
-    </div>
+    <Grid item container lg={12} alignItems="center">
+      <Grid lg={2}>
+        <img
+          style={{ width: 50, height: 50 }}
+          src={`../img/${imageName}`}
+          alt={displayName}
+        />
+      </Grid>
+      <Grid lg={3}>
+        <Typography
+          component="div"
+          variant="subtitle2"
+          sx={{ lineHeight: '1em' }}
+        >
+          {displayName}
+        </Typography>
+      </Grid>
+      <Grid lg={2}>
+        <IconButton
+          aria-label="add"
+          color="inherit"
+          onClick={() => increaseQuantity(item)}
+        >
+          <AddCircleOutlineIcon />
+        </IconButton>
+      </Grid>
+      <Grid lg={1}>
+        <Typography color="text.secondary" component="p">
+          {quantity}
+        </Typography>
+      </Grid>
+      <Grid lg={2}>
+        <IconButton
+          aria-label="remove"
+          onClick={() => decreaseQuantity(item)}
+          disabled={quantity <= 1}
+        >
+          <RemoveCircleOutlineIcon />
+        </IconButton>
+      </Grid>
+      <Grid lg={2}>
+        <IconButton
+          aria-label="cancel"
+          color="inherit"
+          onClick={() => deleteItem(id)}
+        >
+          <CancelIcon />
+        </IconButton>
+      </Grid>
+    </Grid>
   )
+
+  // return (
+  //   <Grid item lg={12}>
+  //     <img src={`../img/${imageName}`} alt={displayName} />
+  //     <Typography variant="subtitle2">{displayName}</Typography>
+  //     <IconButton color="inherit" onClick={() => increaseQuantity(item)}>
+  //       <AddCircleOutlineIcon />
+  //     </IconButton>
+  //     <span>{quantity}</span>
+  //     <IconButton
+  //       color="inherit"
+  //       onClick={() => decreaseQuantity(item)}
+  //       disabled={quantity <= 1}
+  //     >
+  //       <RemoveCircleOutlineIcon />
+  //     </IconButton>
+  //     <IconButton color="inherit" onClick={() => deleteItem(id)}>
+  //       <CancelIcon />
+  //     </IconButton>
+  //   </Grid>
+  // )
 }
 
 export default CartItem

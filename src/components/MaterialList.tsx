@@ -17,7 +17,7 @@ const MaterialList: React.FC<MaterialListProps> = ({ addItemToCart }) => {
   const materialsArray: Materials = [...materials.materials]
 
   return (
-    <Grid container item lg={9} spacing={3} sx={MaterialListStyle}>
+    <Grid container item lg={8} spacing={3} sx={MaterialListStyle}>
       {materialsArray.map((material) => (
         <Item key={material.id} item={material} addItemToCart={addItemToCart} />
       ))}

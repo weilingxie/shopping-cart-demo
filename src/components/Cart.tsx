@@ -3,7 +3,6 @@ import Grid from '@mui/material/Grid'
 import { Typography } from '@mui/material'
 import CartItem from './CartItem'
 import { CartItems, CartItemType } from '../types/CartTypes'
-import './Cart.css'
 
 interface CartProps {
   cartItems: CartItems
@@ -21,8 +20,10 @@ const Cart: React.FC<CartProps> = ({
   deleteItem,
 }) => {
   return (
-    <Grid container item lg={3} justifyContent="center">
-      <Typography variant="h4">{title}</Typography>
+    <Grid container item lg={3} justifyContent="center" spacing={2}>
+      <Typography variant="h4" justifySelf="center">
+        {title}
+      </Typography>
       {cartItems &&
         cartItems.map((item) => (
           <CartItem
