@@ -25,7 +25,7 @@ const Cart: React.FC<CartProps> = ({
       {cartItems &&
         cartItems.map((item) => (
           <CartItem
-            key={`cardItem${item.id}`}
+            key={`cartItem${item.id}`}
             item={item}
             increaseQuantity={increaseQuantity}
             decreaseQuantity={decreaseQuantity}
