@@ -3,7 +3,6 @@ import Grid from '@mui/material/Grid'
 import materials from '../static/materials.json'
 import Item from './Item'
 import { Material, Materials } from '../types/MaterialTypes'
-import './MaterialList.css'
 
 const MaterialListStyle = {
   paddingRight: '20px',
