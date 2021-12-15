@@ -1,11 +1,15 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { Container } from '@mui/material'
+import Grid from '@mui/material/Grid'
 import MaterialList from './MaterialList'
+import { CartItems, CartItemType } from '../types/CartTypes'
+import { Material } from '../types/MaterialTypes'
 import Cart from './Cart'
 
-const ShoppingListContainer = () => {
-  const [cartItems, setCartItems] = useState([])
+const ShoppingListContainer: React.FC = () => {
+  const [cartItems, setCartItems] = useState<CartItems>([])
 
-  const increaseQuantity = (item) => {
+  const increaseQuantity = (item: CartItemType) => {
     const itemIndex = cartItems.indexOf(item)
     if (itemIndex === -1) {
       return
@@ -14,7 +18,7 @@ const ShoppingListContainer = () => {
     newCartItems[itemIndex].quantity += 1
     setCartItems(newCartItems)
   }
-  const decreaseQuantity = (item) => {
+  const decreaseQuantity = (item: CartItemType) => {
     const itemIndex = cartItems.indexOf(item)
     if (itemIndex === -1) {
       return
@@ -23,7 +27,7 @@ const ShoppingListContainer = () => {
     newCartItems[itemIndex].quantity -= 1
     setCartItems(newCartItems)
   }
-  const deleteItem = (id) => {
+  const deleteItem = (id: number) => {
     const changeItem = cartItems.find((i) => i.id === id)
     if (changeItem) {
       const newCartItems = cartItems.filter((i) => i.id !== id)
@@ -31,7 +35,7 @@ const ShoppingListContainer = () => {
     }
   }
 
-  const addItemToCart = (item) => {
+  const addItemToCart = (item: Material) => {
     const existItem = cartItems.find((i) => i.id === item.id)
     if (existItem) {
       return
@@ -48,15 +52,17 @@ const ShoppingListContainer = () => {
   }
 
   return (
-    <div className="page-container">
-      <MaterialList addItemToCart={addItemToCart} />
-      <Cart
-        cartItems={cartItems}
-        increaseQuantity={increaseQuantity}
-        decreaseQuantity={decreaseQuantity}
-        deleteItem={deleteItem}
-      />
-    </div>
+    <Container sx={{ paddingTop: '30px' }} className="page-container">
+      <Grid container alignItems="flex-start" spacing="2">
+        <MaterialList addItemToCart={addItemToCart} />
+        <Cart
+          cartItems={cartItems}
+          increaseQuantity={increaseQuantity}
+          decreaseQuantity={decreaseQuantity}
+          deleteItem={deleteItem}
+        />
+      </Grid>
+    </Container>
   )
 }
 
