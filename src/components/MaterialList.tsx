@@ -1,8 +1,8 @@
 import React from 'react'
 import Grid from '@mui/material/Grid'
-import materials from '../static/materials.json'
+
 import Item from './Item'
-import { Material, Materials } from '../types/MaterialTypes'
+import { Materials } from '../types/MaterialTypes'
 
 const MaterialListStyle = {
   paddingRight: '20px',
@@ -10,16 +10,14 @@ const MaterialListStyle = {
 }
 
 interface MaterialListProps {
-  addItemToCart: (item: Material) => void
+  materials: Materials
 }
 
-const MaterialList: React.FC<MaterialListProps> = ({ addItemToCart }) => {
-  const materialsArray: Materials = [...materials.materials]
-
+const MaterialList: React.FC<MaterialListProps> = ({ materials }) => {
   return (
     <Grid container item lg={8} spacing={3} sx={MaterialListStyle}>
-      {materialsArray.map((material) => (
-        <Item key={material.id} item={material} addItemToCart={addItemToCart} />
+      {materials.map((material) => (
+        <Item key={material.id} item={material} />
       ))}
     </Grid>
   )
