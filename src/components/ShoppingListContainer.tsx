@@ -1,7 +1,7 @@
 import React from 'react'
 import { Container } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import MaterialList from './MaterialList'
+import ShoppingList from './ShoppingList'
 import Cart from './Cart'
 import materials from '../static/materials.json'
 
@@ -13,7 +13,7 @@ const ShoppingListContainer: React.FC = () => {
       data-testid="ShoppingListContainer"
     >
       <Grid container alignItems="flex-start" spacing="2">
-        <MaterialList materials={materials.materials} />
+        <ShoppingList materials={materials.materials} />
         <Cart />
       </Grid>
     </Container>

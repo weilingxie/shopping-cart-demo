@@ -4,18 +4,18 @@ import Grid from '@mui/material/Grid'
 import Item from './Item'
 import { Materials } from '../types/MaterialTypes'
 
-const MaterialListStyle = {
+const ShoppingListStyle = {
   paddingRight: '20px',
   borderRight: '2px lightgrey solid',
 }
 
-interface MaterialListProps {
+interface ShoppingListProps {
   materials: Materials
 }
 
-const MaterialList: React.FC<MaterialListProps> = ({ materials }) => {
+const ShoppingList: React.FC<ShoppingListProps> = ({ materials }) => {
   return (
-    <Grid container item lg={8} spacing={3} sx={MaterialListStyle}>
+    <Grid container item lg={8} spacing={3} sx={ShoppingListStyle}>
       {materials.map((material) => (
         <Item key={material.id} item={material} />
       ))}
@@ -23,4 +23,4 @@ const MaterialList: React.FC<MaterialListProps> = ({ materials }) => {
   )
 }
 
-export default MaterialList
+export default ShoppingList
