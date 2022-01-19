@@ -1,1 +1,1 @@
-Refer to the provided PDF outlining this exercise for instructions.
+Shopping List + Cart

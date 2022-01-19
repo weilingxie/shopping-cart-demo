@@ -9,17 +9,16 @@ import CardMedia from '@mui/material/CardMedia'
 import CardActions from '@mui/material/CardActions'
 import IconButton from '@mui/material/IconButton'
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart'
+import { useAppDispatch } from '../redux/hooks'
+import { addItemToCart } from '../redux/cartItems/cartItemsSlice'
 
 interface ItemProps {
   item: Material
-  addItemToCart: (item: Material) => void
 }
 
-const Item: React.FC<ItemProps> = ({ item, addItemToCart }) => {
+const Item: React.FC<ItemProps> = ({ item }) => {
   const { displayName, imageName } = item
-  const handleClick = () => {
-    addItemToCart(item)
-  }
+  const dispatch = useAppDispatch()
 
   return (
     <Grid item lg={4}>
@@ -38,7 +37,7 @@ const Item: React.FC<ItemProps> = ({ item, addItemToCart }) => {
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <IconButton onClick={() => handleClick()}>
+          <IconButton onClick={() => dispatch(addItemToCart(item))}>
             <AddShoppingCartIcon fontSize="large" />
           </IconButton>
         </CardActions>
