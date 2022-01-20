@@ -1,4 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import { createSlice, PayloadAction, current } from '@reduxjs/toolkit'
 import { CartItems } from '../../types/CartTypes'
 import { Material } from '../../types/MaterialTypes'
 import type { RootState } from '../store'
@@ -19,30 +19,29 @@ export const cartItemsSlice = createSlice({
   initialState,
   reducers: {
     increaseQuantity: (state, action: PayloadAction<number>) => {
-      const cartItems = state.value
+      const cartItems = current(state).value
       const id = action.payload
-      const existItem = cartItems.find((i) => (i.id = id))
-      if (existItem) {
-        const index = cartItems.indexOf(existItem)
+      const index = cartItems.findIndex((i) => i.id === id)
+
+      if (index > -1) {
         state.value[index].quantity += 1
       }
     },
     decreaseQuantity: (state, action: PayloadAction<number>) => {
-      const cartItems = state.value
+      const cartItems = current(state).value
       const id = action.payload
-      const existItem = cartItems.find((i) => (i.id = id))
-      if (existItem) {
-        const index = cartItems.indexOf(existItem)
+      const index = cartItems.findIndex((i) => i.id === id)
+
+      if (index > -1) {
         state.value[index].quantity -= 1
       }
     },
     deleteItem: (state, action: PayloadAction<number>) => {
-      const cartItems = state.value
+      const cartItems = current(state).value
       const id = action.payload
-      const changeItem = cartItems.find((i) => i.id === id)
-      if (changeItem) {
-        const itemIndex = cartItems.indexOf(changeItem)
-        state.value.splice(itemIndex, 1)
+      const index = cartItems.findIndex((i) => i.id === id)
+      if (index > -1) {
+        state.value.splice(index, 1)
       }
     },
     addItemToCart: (state, action: PayloadAction<Material>) => {

@@ -36,6 +36,15 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
           variant="subtitle2"
           sx={{ lineHeight: '1em' }}
         >
+          {id}
+        </Typography>
+      </Grid>
+      <Grid item lg={3}>
+        <Typography
+          component="div"
+          variant="subtitle2"
+          sx={{ lineHeight: '1em' }}
+        >
           {displayName}
         </Typography>
       </Grid>
