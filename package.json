@@ -2,6 +2,7 @@
   "name": "create-react-app",
   "version": "4.0.0",
   "private": true,
+  "homepage": "https://weilingxie.github.io/shopping-cart-demo",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
