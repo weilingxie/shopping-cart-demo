@@ -27,7 +27,7 @@ const Item: React.FC<ItemProps> = ({ item }) => {
           <CardMedia
             component="img"
             width="150"
-            image={`../img/${imageName}`}
+            image={`${process.env.PUBLIC_URL}/img/${imageName}`}
             alt={displayName}
           />
           <CardContent sx={{ height: '45px' }}>
