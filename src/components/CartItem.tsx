@@ -26,7 +26,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
       <Grid item lg={2}>
         <img
           style={{ width: 50, height: 50 }}
-          src={`../img/${imageName}`}
+          src={`${process.env.PUBLIC_URL}/img/${imageName}`}
           alt={displayName}
         />
       </Grid>
